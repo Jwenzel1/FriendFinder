@@ -1,0 +1,27 @@
+{
+  "name": "friend_finder",
+  "version": "1.0.0",
+  "description": "Find some friends!",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gatan45/FriendFinder.git"
+  },
+  "keywords": [
+    "Friends"
+  ],
+  "author": "Joe Wenzel",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gatan45/FriendFinder/issues"
+  },
+  "homepage": "https://github.com/gatan45/FriendFinder#readme",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.4"
+  }
+}
