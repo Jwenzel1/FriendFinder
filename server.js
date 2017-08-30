@@ -13,7 +13,6 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.text());
 app.use(bodyParser.json({ type: "application/vnd.api+json" }));
-app.use(express.static(path.join(__dirname, 'public')));
 
 app.get(htmlRoutes.home, function(req, res) {
   res.sendFile(path.join(__dirname, "./app/public/home.html"));
