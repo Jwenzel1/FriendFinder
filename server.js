@@ -6,13 +6,15 @@ var apiRoutes = require("./app/routing/apiRoutes.js");
 var htmlRoutes = require("./app/routing/htmlRoutes.js");
 
 var app = express();
-var PORT = process.env.PORT || 3000;
+var PORT = process.env.PORT || 30000;
 
 // Sets up the Express app to handle data parsing
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.text());
 app.use(bodyParser.json({ type: "application/vnd.api+json" }));
+
+app.use(express.static(path.join(__dirname, "/app/public/css")));
 
 app.get(htmlRoutes.home, function(req, res) {
   res.sendFile(path.join(__dirname, "./app/public/home.html"));
@@ -26,6 +28,11 @@ app.get(apiRoutes.friends, function(req, res) {
   var friends = JSON.parse(fs.readFileSync("./app/data/friends.js", "utf8"));
   res.json(friends);
 });
+
+// app.get("/css", function(req, res){
+//   res.sendFile(path.join(__dirname, "./app/public/css/styles.css"));
+//   // res.send("text");
+// })
 
 app.post(apiRoutes.computeCompatibility, function(req, res){
   var friends = JSON.parse(fs.readFileSync("./app/data/friends.js", "utf8"));
